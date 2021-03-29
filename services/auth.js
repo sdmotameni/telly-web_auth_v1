@@ -2,7 +2,9 @@ import http from "../services/http";
 
 const apiEndpoint = "https://api.gettelly.com/";
 
-http.setJwt(getToken());
+if (typeof window !== "undefined") {
+  http.setJwt(getToken());
+}
 
 function login(email, password) {
   return http.post(apiEndpoint + "login", { email, password });

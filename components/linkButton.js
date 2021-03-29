@@ -1,3 +1,4 @@
+import Image from "next/image";
 import getMetaDetails from "../utils/getMetaDetails";
 
 const LinkButton = (platform, handle) => {
@@ -7,7 +8,12 @@ const LinkButton = (platform, handle) => {
       <a href={url}>
         <div className="flex px-3 py-1 mt-3 bg-white rounded-md shadow-md shadow-3xl">
           <div className="flex w-full">
-            <img className="object-cover w-16 h-16" src={image} alt="" />
+            <Image
+              src={image}
+              alt={platform + " Icon"}
+              height={64}
+              width={64}
+            />
             <div className="flex flex-col justify-center ml-3">
               <h1 className="font-bold capitalize">{title}</h1>
               <p className="-mt-1 opacity-70">{handle}</p>

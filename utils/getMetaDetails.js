@@ -1,69 +1,43 @@
-import SnapchatLogo from "../public/icons/snapchat.png";
-import WhatsAppLogo from "../public/icons/whatsapp.png";
-import LinkedInLogo from "../public/icons/linkedin.png";
-import TikTokLogo from "../public/icons/tiktok.png";
-import InstagramLogo from "../public/icons/instagram.png";
-import VenmoLogo from "../public/icons/venmo.png";
-import CashAppLogo from "../public/icons/cashapp.png";
-import TwitterLogo from "../public/icons/twitter.png";
-// import FacebookLogo from "../public/icons/facebook.png";
-// import YouTubeLogo from "../public/icons/youtube.png";
-
-// TODO: Add email, soundcloud, spotify, zelle
-// TODO: fb & yt have variable urls
-/*
-  facebook: {
-    title: "Facebook",
-    url: "https://www.facebook.com/Telly-102665065137487",
-    image: FacebookLogo,
-  },
-  youtube: {
-    title: "YouTube",
-    url: "https://www.youtube.com/c/",
-    image: YouTubeLogo,
-  },
-*/
-
 const config = {
   cashapp: {
     title: "Cash App",
     url: "https://cash.app/$",
-    image: CashAppLogo,
+    image: "/icons/cashapp.png",
   },
   instagram: {
     title: "Instagram",
     url: "https://instagram.com/",
-    image: InstagramLogo,
+    image: "/icons/instagram.png",
   },
   linkedin: {
     title: "LinkedIn",
     url: "https://linkedin.com/in/",
-    image: LinkedInLogo,
+    image: "/icons/linkedin.png",
   },
   snapchat: {
     title: "Snapchat",
     url: "https://snapchat.com/add/",
-    image: SnapchatLogo,
+    image: "/icons/snapchat.png",
   },
   twitter: {
     title: "Twitter",
     url: "https://twitter.com/",
-    image: TwitterLogo,
+    image: "/icons/twitter.png",
   },
   venmo: {
     title: "Venmo",
     url: "https://venmo.com/",
-    image: VenmoLogo,
+    image: "/icons/venmo.png",
   },
   whatsapp: {
     title: "WhatsApp",
     url: "https://wa.me/",
-    image: WhatsAppLogo,
+    image: "/icons/whatsapp.png",
   },
   tiktok: {
     title: "TikTok",
     url: "https://www.tiktok.com/@",
-    image: TikTokLogo,
+    image: "/icons/tiktok.png",
   },
 };
 

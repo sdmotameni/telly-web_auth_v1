@@ -6,11 +6,11 @@ export default function EditButtons() {
 
   return (
     <div className="flex items-center space-x-3">
-      <Link className={styles} to="/settings">
-        <a>Edit Profile</a>
+      <Link href="/settings">
+        <a className={styles}>Edit Profile</a>
       </Link>
-      <Link className={styles} to="/new">
-        <a>Add New Link</a>
+      <Link href="/new">
+        <a className={styles}>Add New Link</a>
       </Link>
     </div>
   );

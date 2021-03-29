@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div class="border border-red-500">hello</div>
+        <div className="border border-red-500">hello</div>
       </main>
 
       <footer></footer>

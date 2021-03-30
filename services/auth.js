@@ -1,4 +1,4 @@
-import http from "../services/http";
+import http from "./http";
 
 const apiEndpoint = "https://api.gettelly.com/";
 

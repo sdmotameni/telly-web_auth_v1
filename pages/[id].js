@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ProfileService from "../services/profileService";
 import Profile from "../components/profile";
 
-export default async function id() {
+export default function id() {
   const router = useRouter();
   const { id } = router.query;
   //   try {
@@ -11,5 +11,5 @@ export default async function id() {
   //   } catch (err) {
   //     console.log("errorrrrr");
   //   }
-  return <Profile name="Love It" isAdmin={true} />;
+  return <Profile name="Love It d" isAdmin={true} />;
 }

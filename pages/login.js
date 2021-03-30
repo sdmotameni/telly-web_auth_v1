@@ -11,7 +11,7 @@ export default class Home extends Form {
   async doSubmit() {
     const { email, password } = this.state.data;
     try {
-      const { headers } = await auth.login(email.trim(), password);
+      const { headers } = await auth.login(email && email.trim(), password);
       auth.storeToken(headers["x-auth-token"]);
       window.location = "/me";
     } catch (errorMsg) {

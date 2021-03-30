@@ -26,7 +26,9 @@ export default function Welcome() {
         <p className="px-6 py-2 font-mono leading-tight tracking-tight text-center rounded-md">
           Peel off the sticker and attach your Telly to the back of your phone!
         </p>
-        <Image src="/onboarding.gif" alt="" width={500} height={300} />
+        <div className="text-center">
+          <Image src="/onboarding.gif" alt="" width={500} height={300} />
+        </div>
         <p className="px-6 font-mono text-xs leading-tight tracking-tight text-center rounded-md opacity-70">
           You will never need to remove your Telly from your phone. In the
           future, just login to update your profile.

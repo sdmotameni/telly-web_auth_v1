@@ -1,28 +1,25 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import ProfileService from "../services/profileService";
 import Profile from "../components/profile";
 import Loading from "../components/loading";
 import Welcome from "../components/welcome";
 
-export default function id() {
-  const [data, setData] = useState(null);
-  const [isDone, setIsDone] = useState(false);
+import React, { Component } from "react";
 
-  const router = useRouter();
-  const { id } = router.query;
+export default class id extends Component {
+  state = { component: <Loading /> };
 
-  useEffect(() => {
+  componentDidMount() {
+    const id = window.location.pathname.substring(1);
     ProfileService.getProfile(id)
       .then(({ data }) => {
-        setData(data);
+        this.setState({ component: <Profile data={data} /> });
       })
-      .finally(() => {
-        setIsDone(true);
+      .catch((_) => {
+        this.setState({ component: <Welcome /> });
       });
-  }, [isDone]);
+  }
 
-  if (!isDone) return <Loading />;
-
-  return data ? <Profile data={data} /> : <Welcome />;
+  render() {
+    return this.state.component;
+  }
 }

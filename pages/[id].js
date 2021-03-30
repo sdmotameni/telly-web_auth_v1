@@ -44,15 +44,66 @@
 
 // export default id;
 
-import { useState, useEffect } from "react";
-import Loading from "../components/loading";
+import { Component } from "react";
+import ProfileService from "../services/profileService";
 import Profile from "../components/profile";
+import Loading from "../components/loading";
 import Welcome from "../components/welcome";
 
-export default function id() {
-  useEffect(() => {
-    console.log("Good");
-  }, []);
+export default class id extends Component {
+  state = { data: null };
 
-  return <Loading />;
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ data: "hello" });
+    }, 3000);
+  }
+
+  loadData() {
+    this.setState({ data });
+  }
+
+  render() {
+    if (!this.state.data) {
+      return <Loading />;
+    }
+
+    return <Profile />;
+  }
 }
+
+// export default function id() {
+//   const [isNew, setIsNew] = useState(false);
+
+//   useEffect(() => {
+//     console.log("hello");
+//     setIsNew(true);
+//   });
+
+//   setTimeout(() => {
+//     setIsNew(false);
+//   }, 3000);
+
+//   if (!isNew) {
+//     return <div>not mounted</div>;
+//   }
+
+//   return <div>hello</div>;
+// }
+
+// const [profile, setProfile] = useState(null);
+// const loadData = () => {
+//   ProfileService.getProfile()
+//     .then(({ data }) => {
+//       console.log("data", data);
+//       setProfile(data);
+//     })
+//     .catch((errMsg) => {
+//       console.log(errMsg);
+//       setProfile(null);
+//     });
+// };
+// setTimeout(() => {
+//   loadData();
+// }, 3000);
+// return !profile ? <Loading /> : <Profile />;

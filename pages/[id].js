@@ -24,5 +24,5 @@ export default function id() {
 
   if (!isDone) return <Loading />;
 
-  return data ? <Profile /> : <Welcome />;
+  return data ? <Profile data={data} /> : <Welcome />;
 }

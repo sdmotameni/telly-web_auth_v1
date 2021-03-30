@@ -5,18 +5,18 @@ import Navbar from "./navbar";
 import EditButtons from "./editButtons";
 import Footer from "./footer";
 
-function Profile({ name, isAdmin, links }) {
+function Profile({ data }) {
   return (
     <div>
       <Head>
-        <title>{name} - Telly</title>
+        <title>{data.name} - Telly</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-screen bg-gray-100">
-        {isAdmin && <Navbar name={name.substr(0, name.indexOf(" "))} />}
+        {false && <Navbar name={data.name.substr(0, data.name.indexOf(" "))} />}
         <div className="p-4 mx-auto">
-          <ProfileHeader name={name} bio="High Point University" />
-          {isAdmin && (
+          <ProfileHeader name={data.name} bio="High Point University" />
+          {false && (
             <div className="pt-2">
               <EditButtons />
             </div>

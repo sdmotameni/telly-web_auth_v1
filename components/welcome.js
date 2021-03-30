@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "./header";
@@ -6,6 +7,10 @@ import Footer from "./footer";
 export default function Welcome() {
   return (
     <div className="w-full h-screen p-4 bg-gray-100">
+      <Head>
+        <title>Welcome - Telly</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <div className="h-full space-y-6">
         <h1 className="mt-5 text-5xl font-extrabold text-center">

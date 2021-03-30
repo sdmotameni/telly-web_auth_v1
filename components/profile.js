@@ -5,6 +5,13 @@ import Navbar from "./navbar";
 import EditButtons from "./editButtons";
 import Footer from "./footer";
 
+const links = {
+  twitter: "hello20",
+  snapchat: "fjfjodod",
+  instagram: "sepmotameni",
+  linkedin: "sepmotameni",
+};
+
 function Profile({ data }) {
   return (
     <div>
@@ -22,14 +29,9 @@ function Profile({ data }) {
             </div>
           )}
           <div className="mt-4">
-            {LinkButton("instagram", "sepmotameni")}
-            {LinkButton("snapchat", "sepmotameni")}
-            {LinkButton("tiktok", "sepmotameni")}
-            {LinkButton("cashapp", "sdmotameni")}
-            {LinkButton("linkedin", "sepmotameni")}
-            {LinkButton("venmo", "sdmotameni")}
-            {LinkButton("twitter", "sepmotameni")}
-            {LinkButton("whatsapp", "13368995612")}
+            {Object.keys(links).map((ele) => {
+              return <span key={ele}>{LinkButton(ele, links[ele])}</span>;
+            })}
           </div>
         </div>
         <Footer />

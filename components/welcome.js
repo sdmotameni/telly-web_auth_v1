@@ -4,7 +4,11 @@ import Link from "next/link";
 import Header from "./header";
 import Footer from "./footer";
 
+import { useRouter } from "next/router";
+
 export default function Welcome() {
+  const router = useRouter();
+
   return (
     <div className="w-full h-screen p-4 bg-gray-100">
       <Head>
@@ -14,11 +18,9 @@ export default function Welcome() {
       <Header />
       <div className="h-full space-y-6">
         <h1 className="mt-5 text-5xl font-extrabold text-center">
-          Hey{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
-            Caroline
+            Hey!
           </span>
-          !
         </h1>
         <h2 className="text-3xl tracking-tight text-center">
           Let's setup your <span className="text-blue-500">Telly</span>,
@@ -33,7 +35,12 @@ export default function Welcome() {
           You will never need to remove your Telly from your phone. In the
           future, just login to update your profile.
         </p>
-        <Link href="/me">
+        <Link
+          href={{
+            pathname: "/register",
+            query: { profileId: window.location.pathname.substring(1) },
+          }}
+        >
           <a className="flex items-center justify-center px-4 py-2 mt-3 font-semibold text-white bg-blue-500 rounded-full outline-none">
             <span>Continue</span>
             <svg

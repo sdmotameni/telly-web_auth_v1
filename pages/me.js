@@ -1,11 +1,16 @@
 import Profile from "../components/profile";
+import UserService from "../services/userService";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Me() {
+  const [data, setData] = useState("");
   useEffect(() => {
-    console.log("1 time");
-  });
+    UserService.getMe().then(({ data }) => {
+      setData(data);
+      console.log(data);
+    });
+  }, []);
 
-  return <div></div>;
+  return <Profile data={data} isAdmin={true} />;
 }

@@ -20,7 +20,7 @@ export default class Register extends Form {
         password,
         profileId,
         name,
-        phone && phone.toString()
+        phone && phone.replace(/[^\d]/g, "")
       );
       auth.storeToken(headers["x-auth-token"]);
       window.location = "/me";

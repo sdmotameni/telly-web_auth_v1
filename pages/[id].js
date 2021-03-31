@@ -1,7 +1,7 @@
 import { Component } from "react";
 import ProfileService from "../services/profileService";
-import Profile from "../components/profile";
 import Loading from "../components/loading";
+import Profile from "../components/profile";
 import Welcome from "../components/welcome";
 
 export default class id extends Component {

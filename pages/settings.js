@@ -9,7 +9,8 @@ export default class Settings extends Form {
 
   async componentDidMount() {
     try {
-      await UserService.getMe();
+      const { data } = await UserService.getMe();
+      this.setState({ data });
     } catch {
       window.location = "/login";
     }
@@ -19,13 +20,21 @@ export default class Settings extends Form {
     const { data } = this.state;
     try {
       await UserService.updateProfile(data);
-      console.log("success");
+      window.location = "/me";
     } catch (errorMsg) {
-      console.error(errorMsg);
+      this.setState({ errorMsg });
     }
   }
 
   render() {
+    // const data = {
+    //   email: "me@sepmotaemni.cm",
+    //   phone: "7042224865",
+    //   name: "Sep Motameni",
+    //   bio: "Harvard Universijty",
+    // };
+    const { data } = this.state;
+
     const { errorMsg, isAdmin } = this.state;
     const inputStyles =
       "focus:outline-none outline-none focus:ring-2 mb-1 focus:ring-blue-600 border border-gray-200 px-6 py-2 rounded-md w-full";
@@ -55,7 +64,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "email",
-                "john@example.com",
+                data.email && data.email,
                 this.handleChange
               )}
               <label className="font-semibold">Phone</label>
@@ -63,7 +72,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "tel",
                 "phone",
-                "123-456-7890",
+                data.phone && data.phone,
                 this.handleChange
               )}
               <label className="font-semibold">Full Name</label>
@@ -71,7 +80,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "name",
-                "John Doe",
+                data.name && data.name,
                 this.handleChange
               )}
               <label className="font-semibold">Bio</label>
@@ -79,7 +88,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "bio",
-                "loremloremloremloremloremloremlorem",
+                data.bio && data.bio,
                 this.handleChange
               )}
               <label className="font-semibold">Password</label>

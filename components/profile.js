@@ -19,7 +19,7 @@ function Profile({ data, isAdmin }) {
       <main className="w-full h-screen bg-gray-100">
         {isAdmin && <Navbar name={firstName} />}
         <div className="p-4 mx-auto">
-          <ProfileHeader name={data.name} bio="High Point University" />
+          <ProfileHeader name={data.name} bio={data.bio} />
           {isAdmin && (
             <div className="pt-2">
               <EditButtons />

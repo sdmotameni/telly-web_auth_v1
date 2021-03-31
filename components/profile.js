@@ -27,8 +27,8 @@ function Profile({ data, isAdmin }) {
           )}
           <div className="mt-4">
             {noLinks && (
-              <p className="px-4 py-2 text-xl text-center bg-white rounded-md shadow">
-                Once <span className="text-blue-500">{firstName}</span> adds
+              <p className="px-4 py-2 text-xl tracking-tight text-center bg-white rounded-md shadow">
+                Once <span className="text-blue-500 ">{firstName}</span> adds
                 social links, they will appear here.
               </p>
             )}

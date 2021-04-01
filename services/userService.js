@@ -6,8 +6,8 @@ function getMe() {
   return http.get(apiEndpoint + "me");
 }
 
-function updateProfile(settings) {
-  return http.post(apiEndpoint + "settings", settings);
+function updateProfile(data) {
+  return http.post(apiEndpoint + "settings", data);
 }
 
 export default {

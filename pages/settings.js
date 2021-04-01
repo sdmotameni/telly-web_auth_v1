@@ -7,6 +7,7 @@ import UserService from "../services/userService";
 export default class Settings extends Form {
   state = {
     data: "",
+    placeHolder: "",
     errorMsg: null,
     isAdmin: true,
   };
@@ -14,7 +15,7 @@ export default class Settings extends Form {
   async componentDidMount() {
     try {
       const { data } = await UserService.getMe();
-      this.setState({ data });
+      this.setState({ placeHolder: data });
     } catch {
       window.location = "/login";
     }
@@ -32,7 +33,7 @@ export default class Settings extends Form {
   }
 
   render() {
-    const { data, errorMsg, isAdmin } = this.state;
+    const { placeHolder, errorMsg, isAdmin } = this.state;
 
     const inputStyles =
       "focus:outline-none outline-none focus:ring-2 mb-1 focus:ring-blue-600 border border-gray-200 px-6 py-2 rounded-md w-full";
@@ -46,7 +47,7 @@ export default class Settings extends Form {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className="w-full h-screen bg-gray-100">
-          {isAdmin && <Navbar name={data.name} />}
+          {isAdmin && <Navbar name={placeHolder.name} />}
           <div className="px-4 py-2">
             <h1 className="mb-1 text-2xl font-semibold text-center">
               Settings
@@ -62,7 +63,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "email",
-                data.email && data.email,
+                placeHolder.email,
                 this.handleChange
               )}
               <label className="font-semibold">Phone</label>
@@ -70,7 +71,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "tel",
                 "phone",
-                data.phone && data.phone,
+                placeHolder.phone,
                 this.handleChange
               )}
               <label className="font-semibold">Full Name</label>
@@ -78,7 +79,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "name",
-                data.name && data.name,
+                placeHolder.name,
                 this.handleChange
               )}
               <label className="font-semibold">Bio</label>
@@ -86,7 +87,7 @@ export default class Settings extends Form {
                 inputStyles,
                 "text",
                 "bio",
-                data.bio && data.bio,
+                placeHolder.bio,
                 this.handleChange
               )}
               <label className="font-semibold">Password</label>

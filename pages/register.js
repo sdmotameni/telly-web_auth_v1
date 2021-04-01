@@ -8,6 +8,14 @@ export default class Register extends Form {
   state = { data: "", errorMsg: null };
 
   async doSubmit() {
+    if (this.state.data.password != this.state.password2) {
+      setTimeout(() => {
+        this.setState({ errorMsg: "" });
+      }, 3000);
+      return this.setState({
+        errorMsg: "Password and confirm password need to match.",
+      });
+    }
     // Get Query Profile ID from query string
     const urlParams = new URLSearchParams(window.location.search);
     const profileId = urlParams.get("profileId");
@@ -89,7 +97,7 @@ export default class Register extends Form {
             {this.renderInput(
               inputStyles,
               "password",
-              "password",
+              "password2",
               "Confirm Password",
               this.handleChange
             )}

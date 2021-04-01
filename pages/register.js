@@ -8,7 +8,7 @@ export default class Register extends Form {
   state = { data: "", errorMsg: null };
 
   async doSubmit() {
-    if (this.state.data.password != this.state.password2) {
+    if (this.state.data.password != this.state.data.password2) {
       setTimeout(() => {
         this.setState({ errorMsg: "" });
       }, 3000);

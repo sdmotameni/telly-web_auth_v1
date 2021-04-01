@@ -6,7 +6,7 @@ import EditButtons from "./editButtons";
 import Footer from "./footer";
 
 function Profile({ data, isAdmin }) {
-  const firstName = data.name && data.name.substr(0, data.name.indexOf(" "));
+  // const firstName = data.name && data.name.substr(0, data.name.indexOf(" "));
   const noLinks =
     data.links == undefined || Object.keys(data.links).length === 0;
 
@@ -17,7 +17,7 @@ function Profile({ data, isAdmin }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-screen bg-gray-100">
-        {isAdmin && <Navbar name={firstName} />}
+        {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
           <ProfileHeader name={data.name} bio={data.bio} />
           {isAdmin && (
@@ -28,7 +28,7 @@ function Profile({ data, isAdmin }) {
           <div className="mt-4">
             {noLinks && (
               <p className="px-4 py-2 text-xl tracking-tight text-center bg-white rounded-md shadow">
-                Once <span className="text-blue-500 ">{firstName}</span> adds
+                Once <span className="text-blue-500 ">{data.name}</span> adds
                 social links, they will appear here.
               </p>
             )}

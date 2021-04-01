@@ -5,7 +5,11 @@ import Navbar from "../components/navbar";
 import UserService from "../services/userService";
 
 export default class Settings extends Form {
-  state = { data: "", errorMsg: null, isAdmin: true };
+  state = {
+    data: "",
+    errorMsg: null,
+    isAdmin: true,
+  };
 
   async componentDidMount() {
     try {
@@ -18,24 +22,18 @@ export default class Settings extends Form {
 
   async doSubmit() {
     const { data } = this.state;
+
     try {
       await UserService.updateProfile(data);
       window.location = "/me";
-    } catch (errorMsg) {
+    } catch ({ errorMsg, _ }) {
       this.setState({ errorMsg });
     }
   }
 
   render() {
-    // const data = {
-    //   email: "me@sepmotaemni.cm",
-    //   phone: "7042224865",
-    //   name: "Sep Motameni",
-    //   bio: "Harvard Universijty",
-    // };
-    const { data } = this.state;
+    const { data, errorMsg, isAdmin } = this.state;
 
-    const { errorMsg, isAdmin } = this.state;
     const inputStyles =
       "focus:outline-none outline-none focus:ring-2 mb-1 focus:ring-blue-600 border border-gray-200 px-6 py-2 rounded-md w-full";
     const buttonStyles =
@@ -48,7 +46,7 @@ export default class Settings extends Form {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className="w-full h-screen bg-gray-100">
-          {isAdmin && <Navbar name="Jacob" />}
+          {isAdmin && <Navbar name={data.name} />}
           <div className="px-4 py-2">
             <h1 className="mb-1 text-2xl font-semibold text-center">
               Settings

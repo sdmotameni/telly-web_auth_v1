@@ -14,7 +14,7 @@ export default class Home extends Form {
       const { headers } = await auth.login(email && email.trim(), password);
       auth.storeToken(headers["x-auth-token"]);
       window.location = "/me";
-    } catch (errorMsg) {
+    } catch ({ errorMsg, _ }) {
       this.setState({ errorMsg });
     }
   }

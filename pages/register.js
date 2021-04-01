@@ -24,7 +24,7 @@ export default class Register extends Form {
       );
       auth.storeToken(headers["x-auth-token"]);
       window.location = "/me";
-    } catch (errorMsg) {
+    } catch ({ errorMsg, _ }) {
       this.setState({ errorMsg });
     }
   }

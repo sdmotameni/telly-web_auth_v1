@@ -4,11 +4,7 @@ import Link from "next/link";
 import Header from "./header";
 import Footer from "./footer";
 
-import { useRouter } from "next/router";
-
 export default function Welcome() {
-  const router = useRouter();
-
   return (
     <div className="w-full h-screen p-4 bg-gray-100">
       <Head>

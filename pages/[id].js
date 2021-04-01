@@ -13,8 +13,12 @@ export default class id extends Component {
       .then(({ data }) => {
         this.setState({ component: <Profile data={data} /> });
       })
-      .catch((_) => {
-        this.setState({ component: <Welcome /> });
+      .catch(({ _, serversDown }) => {
+        if (!serversDown) {
+          this.setState({ component: <Welcome /> });
+        } else {
+          window.location = "/maintenance";
+        }
       });
   }
 

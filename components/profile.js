@@ -9,7 +9,7 @@ function Profile({ data, isAdmin }) {
   const noLinks =
     data.links == undefined || Object.keys(data.links).length === 0;
 
-  console.log(data);
+  console.log(data.photoUrl);
   return (
     <div>
       <Head>
@@ -20,7 +20,7 @@ function Profile({ data, isAdmin }) {
         {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
           <ProfileHeader
-            profileId={data.profileId}
+            photoUrl={data.photoUrl}
             name={data.name}
             bio={data.bio}
           />

@@ -20,9 +20,7 @@ function Profile({ data, isAdmin }) {
         {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
           <ProfileHeader
-            photoUrl={
-              "https://api.gettelly.com/profile/" + data.profileId + "/image"
-            }
+            profileId={data.profileId}
             name={data.name}
             bio={data.bio}
           />

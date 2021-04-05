@@ -10,13 +10,10 @@ function updateProfile(data) {
   return http.post(apiEndpoint + "settings", data);
 }
 
-function uploadProfilePicture(formData) {
+function uploadProfilePicture(formData, cb) {
   return http.post(apiEndpoint + "upload", formData, {
     onUploadProgress: (progressEvent) => {
-      console.log(
-        "Upload progress: ",
-        (progressEvent.loaded / progressEvent.total) * 100
-      );
+      cb(Math.round((progressEvent.loaded / progressEvent.total) * 100));
     },
   });
 }

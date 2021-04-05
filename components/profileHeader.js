@@ -1,11 +1,19 @@
-export default function ProfileHeader({ photoUrl, name, bio }) {
+// import Image from "next/image";
+
+export default function ProfileHeader({ profileId, photoUrl, name, bio }) {
   return (
     <div className="flex px-2 py-3 bg-white border border-gray-300 rounded-md shadow-lg">
       <img
         className="object-cover h-32 rounded-full shadow-lg"
-        src={photoUrl}
+        src={`https://api.gettelly.com/profile/${profileId}/image`}
         alt=""
       />
+      {/* <Image
+        src={`https://api.gettelly.com/profile/${profileId}/image`}
+        width={125}
+        height={150}
+        alt="profile picture"
+      /> */}
       <div className="flex flex-col items-center justify-center w-full space-y-3">
         <div className="">
           <h1 className="text-xl font-bold tracking-tight text-center">

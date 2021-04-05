@@ -9,7 +9,7 @@ export default class Settings extends Form {
     data: "",
     placeHolder: "",
     errorMsg: null,
-    isAdmin: true,
+    selectedImageFile: null,
   };
 
   async componentDidMount() {
@@ -32,8 +32,23 @@ export default class Settings extends Form {
     }
   }
 
+  fileSelectedHandler = (event) => {
+    this.setState({ selectedImageFile: event.target.files[0] });
+  };
+
+  fileUploadHandler = async () => {
+    const formData = new FormData();
+    formData.append(
+      "image",
+      this.state.selectedImageFile,
+      this.state.selectedImageFile.name
+    );
+
+    await UserService.uploadProfilePicture(formData);
+  };
+
   render() {
-    const { placeHolder, errorMsg, isAdmin } = this.state;
+    const { placeHolder, errorMsg } = this.state;
 
     const inputStyles =
       "focus:outline-none outline-none focus:ring-2 mb-1 focus:ring-blue-600 border border-gray-200 px-6 py-2 rounded-md w-full";
@@ -47,8 +62,8 @@ export default class Settings extends Form {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className="w-full h-screen bg-gray-100">
-          {isAdmin && <Navbar name={placeHolder.name} />}
-          <div className="px-4 py-2">
+          <Navbar name={placeHolder.name} />
+          <div className="px-4 py-3">
             <h1 className="mb-1 text-2xl font-semibold text-center">
               Settings
             </h1>
@@ -57,6 +72,13 @@ export default class Settings extends Form {
                 {errorMsg}
               </h2>
             )}
+            <input
+              type="file"
+              name="image"
+              onChange={this.fileSelectedHandler}
+            />
+            <button onClick={this.fileUploadHandler}>Upload</button>
+
             <form onSubmit={this.handleSubmit}>
               <label className="font-semibold">Email</label>
               {this.renderInput(

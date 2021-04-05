@@ -6,10 +6,10 @@ import EditButtons from "./editButtons";
 import Footer from "./footer";
 
 function Profile({ data, isAdmin }) {
-  // const firstName = data.name && data.name.substr(0, data.name.indexOf(" "));
   const noLinks =
     data.links == undefined || Object.keys(data.links).length === 0;
 
+  console.log(data);
   return (
     <div>
       <Head>
@@ -19,7 +19,13 @@ function Profile({ data, isAdmin }) {
       <main className="w-full h-screen bg-gray-100">
         {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
-          <ProfileHeader name={data.name} bio={data.bio} />
+          <ProfileHeader
+            photoUrl={
+              "https://api.gettelly.com/profile/" + data.profileId + "/image"
+            }
+            name={data.name}
+            bio={data.bio}
+          />
           {isAdmin && (
             <div className="pt-2">
               <EditButtons />

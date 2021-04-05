@@ -15,7 +15,7 @@ export default function Navbar({ name }) {
     <nav className="sticky top-0 flex items-center justify-between w-full px-2 py-4 bg-gray-700">
       <p className="text-lg font-medium text-white">
         {" "}
-        Welcome back {firstName}
+        Welcome back, {firstName}
       </p>
       <div
         onClick={() => Logout(router)}

@@ -54,7 +54,7 @@ export default class Register extends Form {
         <main className="flex flex-col items-center w-full h-screen p-4 bg-gray-100">
           <Image src="/logo.png" alt="me" width={125} height={125} />
           <h1 className="my-3 text-2xl font-extrabold tracking-tight text-center">
-            Create your <span className="text-blue-600">Telly</span> account,
+            Create your <span className="text-blue-600">Telly</span> account
           </h1>
           {errorMsg && (
             <h2 className="px-3 py-4 my-3 text-center text-red-800 bg-red-200 rounded-lg shadow-inner">

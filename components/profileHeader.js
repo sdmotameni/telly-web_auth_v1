@@ -1,9 +1,9 @@
-export default function ProfileHeader({ name, bio }) {
+export default function ProfileHeader({ photoUrl, name, bio }) {
   return (
     <div className="flex px-2 py-3 bg-white border border-gray-300 rounded-md shadow-lg">
       <img
         className="object-cover h-32 rounded-full shadow-lg"
-        src="https://pbs.twimg.com/profile_images/1183975536680460288/IQy100IR_400x400.jpg"
+        src={photoUrl}
         alt=""
       />
       <div className="flex flex-col items-center justify-center w-full space-y-3">

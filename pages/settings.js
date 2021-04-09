@@ -27,7 +27,7 @@ export default class Settings extends Form {
 
     if (!data) return (window.location = "/me");
     try {
-      await UserService.updateProfile(data);
+      await UserService.updateSettings(data);
       window.location = "/me";
     } catch ({ errorMsg, _ }) {
       this.setState({ errorMsg });
@@ -39,7 +39,6 @@ export default class Settings extends Form {
     const formData = new FormData();
 
     const UploadProgressHandler = (res) => {
-      console.log(res);
       if (res === 100) {
         this.setState({ photoLoading: false });
       }

@@ -41,28 +41,3 @@ export default {
   delete: axios.delete,
   setJwt,
 };
-
-/*
-axios.interceptors.response.use(null, (error) => {
-  const serversDown = !error.response || error.response.status == 503;
-
-  if (serversDown) {
-    return Promise.reject({
-      message: "Servers are undergoing routine maintenance. Check back later.",
-      serversDown: true,
-    });
-  }
-
-  const expectedError =
-    error.response &&
-    error.response.status >= 400 &&
-    error.response.status < 500;
-
-  if (!expectedError) {
-    logger.log("Unexpected error logged.");
-    return Promise.reject(error.response.data);
-  }
-
-  return Promise.reject(error.response.data);
-});
-*/

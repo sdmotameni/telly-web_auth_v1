@@ -31,7 +31,7 @@ const config = {
   },
   whatsapp: {
     title: "WhatsApp",
-    url: "https://wa.me/",
+    url: "https://api.whatsapp.com/send?phone=",
     image: "/icons/whatsapp.png",
   },
   tiktok: {

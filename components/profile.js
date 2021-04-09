@@ -9,9 +9,8 @@ function Profile({ data, isAdmin }) {
   const noLinks =
     data.links == undefined || Object.keys(data.links).length === 0;
 
-  console.log(data.photoUrl);
   return (
-    <div>
+    <>
       <Head>
         <title>{data.name} - Telly</title>
         <link rel="icon" href="/favicon.ico" />
@@ -43,10 +42,10 @@ function Profile({ data, isAdmin }) {
                 );
               })}
           </div>
+          <Footer />
         </div>
-        <Footer />
       </main>
-    </div>
+    </>
   );
 }
 

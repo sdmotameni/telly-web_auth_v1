@@ -6,8 +6,12 @@ function getMe() {
   return http.get(apiEndpoint + "me");
 }
 
-function updateProfile(data) {
+function updateSettings(data) {
   return http.post(apiEndpoint + "settings", data);
+}
+
+function updateLinks(data) {
+  return http.post(apiEndpoint + "links", data);
 }
 
 function uploadProfilePicture(formData, cb) {
@@ -20,6 +24,7 @@ function uploadProfilePicture(formData, cb) {
 
 export default {
   getMe,
-  updateProfile,
+  updateSettings,
+  updateLinks,
   uploadProfilePicture,
 };

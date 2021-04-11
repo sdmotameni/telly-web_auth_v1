@@ -1,23 +1,22 @@
 import { Component } from "react";
+import Image from "next/image";
+import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import UserService from "../services/userService";
-import Image from "next/image";
-import Head from "next/head";
 import config from "../config.json";
 
 export default class New extends Component {
   state = {
     data: "",
     profileData: "",
-    links: "",
+    links: [],
     errorMsg: null,
   };
 
   handleChange = ({ currentTarget }) => {
     const data = { ...this.state.data };
     data[currentTarget.name] = currentTarget.value;
-    console.log(data);
     this.setState({ data });
   };
 
@@ -26,14 +25,15 @@ export default class New extends Component {
     this.doSubmit();
   };
 
-  renderInput(styles, type, name, onChange) {
+  renderInput(styles, type, name, placeholder, onChange) {
     return (
       <input
         className={styles}
         type={type}
         name={name}
+        placeholder={placeholder}
         onChange={onChange}
-        value={this.state.data[name]}
+        value={this.state.data && this.state.data[name]}
       />
     );
   }
@@ -49,21 +49,19 @@ export default class New extends Component {
   async componentDidMount() {
     try {
       const { data } = await UserService.getMe();
-      this.setState({ data: data.links });
+      let links = [];
+      Object.keys(config).forEach((ele) => {
+        const obj = {};
+        obj["name"] = config[ele].title.toLowerCase();
+        obj["iconPath"] = config[ele].image;
+
+        links.push(obj);
+      });
+
+      this.setState({ data: data.links, profileData: data, links });
     } catch {
       window.location = "/login";
     }
-
-    let links = [];
-    Object.keys(config).forEach((ele) => {
-      const obj = {};
-      obj["name"] = config[ele].title.toLowerCase().replace(/\s/g, "");
-      obj["iconPath"] = config[ele].image;
-
-      links.push(obj);
-    });
-
-    this.setState({ links });
   }
 
   async doSubmit() {
@@ -118,6 +116,7 @@ export default class New extends Component {
                         inputStyles,
                         "text",
                         link.name,
+                        `Enter your ${link.name} username`,
                         this.handleChange
                       )}
                     </div>

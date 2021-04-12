@@ -42,7 +42,6 @@ function Profile({ data, isAdmin }) {
                 );
               })}
           </div>
-          <Footer />
         </div>
       </main>
     </>

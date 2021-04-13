@@ -3,7 +3,7 @@ import ProfileHeader from "./profileHeader";
 import LinkButton from "./linkButton";
 import Navbar from "./navbar";
 import EditButtons from "./editButtons";
-import Footer from "./footer";
+// import Footer from "./footer";
 
 function Profile({ data, isAdmin }) {
   const noLinks =
@@ -19,6 +19,7 @@ function Profile({ data, isAdmin }) {
         {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
           <ProfileHeader
+            data={data}
             photoUrl={data.photoUrl}
             name={data.name}
             bio={data.bio}

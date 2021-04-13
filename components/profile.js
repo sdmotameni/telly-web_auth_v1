@@ -19,7 +19,7 @@ function Profile({ data, isAdmin }) {
         {isAdmin && <Navbar name={data.name} />}
         <div className="p-4 mx-auto">
           <ProfileHeader
-            data={data}
+            profileId={data.profileId}
             photoUrl={data.photoUrl}
             name={data.name}
             bio={data.bio}

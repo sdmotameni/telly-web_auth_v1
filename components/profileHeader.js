@@ -1,6 +1,6 @@
 import VCardButton from "../components/vcardButton";
 
-export default function ProfileHeader({ data, photoUrl, name, bio }) {
+export default function ProfileHeader({ profileId, photoUrl, name, bio }) {
   return (
     <div className="flex px-2 py-3 bg-white border border-gray-300 rounded-md shadow-lg">
       <img
@@ -17,7 +17,7 @@ export default function ProfileHeader({ data, photoUrl, name, bio }) {
             {bio}
           </h2>
         </div>
-        <VCardButton data={data} />
+        <VCardButton profileId={profileId} />
       </div>
     </div>
   );

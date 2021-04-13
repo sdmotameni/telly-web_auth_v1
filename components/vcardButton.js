@@ -1,23 +1,7 @@
-import FileSaver from "file-saver";
-
-function VCardButton({ data }) {
+export default function VCardButton({ profileId }) {
   const handleClick = (e) => {
-    //TODO: If no bio, exclude the title one and format name section
     e.preventDefault();
-    var file = new Blob(
-      [
-        `BEGIN:VCARD
-VERSION:3.0
-N:${data.name};goodbye;;;
-FN:${data.name} hello
-TITLE:${data.bio};
-TEL;type=CELL;type=VOICE;type=pref:${data.phone}
-END:VCARD
-`,
-      ],
-      { type: "text/vcard;charset=utf-8" }
-    );
-    FileSaver.saveAs(file, `${data.name}.vcf`, true);
+    window.location = `https://api.gettelly.com/profile/${profileId}/vcard`;
   };
 
   return (
@@ -33,5 +17,3 @@ END:VCARD
     </a>
   );
 }
-
-export default VCardButton;

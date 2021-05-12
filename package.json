@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sentry/nextjs": "6.3.6",
     "@sentry/react": "6.2.4",
     "@sentry/tracing": "6.2.4",
     "axios": "0.21.1",

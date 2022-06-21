@@ -1,6 +1,6 @@
 import http from "./http";
 
-const apiEndpoint = "https://api.gettelly.com/";
+const apiEndpoint = "http://localhost:3001/";
 
 if (typeof window !== "undefined") {
   http.setJwt(getToken());

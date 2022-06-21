@@ -1,6 +1,6 @@
 import http from "./http";
 
-const apiEndpoint = "https://api.gettelly.com/profile/";
+const apiEndpoint = "http://localhost:3001/profile/";
 
 function getProfile(id) {
   return http.get(apiEndpoint + id);
